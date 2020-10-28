@@ -1,0 +1,17 @@
+.centered {
+    margin: 0 0 auto;
+    text-align: center;
+}
+
+.container {
+
+}
+
+.canvasContainer {
+
+}
+
+#mainCanvas {
+
+    border: solid 1px;
+}

@@ -1,0 +1,5 @@
+
+// Scene object
+function Scene () {
+    
+}
