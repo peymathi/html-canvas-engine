@@ -20,7 +20,9 @@ function Sprite (startx, starty, image, scene) {
     this.scene = scene;
 
     // Method to draw the sprite
-    this.draw = 
+    this.draw = function () {
+        
+    }
 
     // Method runs once per frame to update the sprite
     this.update = function () {
