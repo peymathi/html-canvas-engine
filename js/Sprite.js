@@ -186,6 +186,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         {
             // Check which way 
         }
+        console.log("Collision?");
 
 
         // Now we need to determine where the sprites will go next. The simplest way (and the way I am using for this first engine) is to 
@@ -199,8 +200,8 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         
         // Check for collisions against sprites
         this.scene.sprites.forEach(function(sprite) {
-            this.checkCollision(sprite).bind(this);
-        }.bind(this)).bind(this);
+            this.checkCollision(sprite);
+        }.bind(this));
 
         // Check for collisions against borders
         // Left
