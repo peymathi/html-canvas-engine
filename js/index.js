@@ -24,11 +24,6 @@ function mouse(e) {
     let x = mousex;
     let y = mousey;
 
-    console.log(mousex);
-    console.log(mousey);
-    console.log(document.getElementById("mainCanvas").offsetLeft);
-    console.log(document.getElementById("mainCanvas").offsetTop);
-
     out.textContent = `Mousex: ${x} Mousey: ${y}`;
 }
 

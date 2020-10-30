@@ -212,6 +212,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         {
             if (this.borderRule == BORDER_BOUNCE)
             {
+                // Reverse motion and acceleration
                 this.dx *= -1;
                 this.ddx *= -1;
                 this.xpos += 1;
@@ -224,7 +225,12 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
 
             else if (this.borderRule == BORDER_WRAP)
             {
-                this.xpos = this.scene.width - 1;
+                // Need to check if the entire object is invisible 
+                if (this.xpos + this.width < this.scene.xpos)
+                {
+                    // Change the position to be just coming into the screen
+                    this.xpos = this.scene.width + this.width;
+                }
             }
         }
 
@@ -245,7 +251,10 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
 
             else if (this.borderRule == BORDER_WRAP)
             {
-                this.xpos = this.scene.xpos + 1;
+                if (this.xpos > this.scene.width)
+                {
+                    this.xpos = this.scene.xpos - this.width;
+                }
             }
         }
 
@@ -266,7 +275,10 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
 
             else if (this.borderRule == BORDER_WRAP)
             {
-                this.ypos = this.scene.height - 1;
+                if (this.ypos + this.height < this.scene.ypos)
+                {
+                    this.ypos = this.scene.height + this.scene;
+                }
             }
         }
 
@@ -287,7 +299,10 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
 
             else if (this.borderRule == BORDER_WRAP)
             {
-                this.ypos = this.scene.ypos + 1;
+                if (this.ypos > this.scene.height)
+                {
+                    this.ypos = this.scene.ypos - this.height;
+                }
             }
         }
     };
