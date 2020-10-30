@@ -21,16 +21,28 @@ function Scene (canvas, frameRate, x, y, width, height) {
     this.width = width;
     this.height = height;
 
+    this.hidden = false;
     this.background = "";
+
+    // Controls game loop
     this.interval = 0;
 
     // Calls update on all sprites
     this.update = function() {
+        
+        // Clear the previous frame
+        this.canvas.con.clearRect(this.x, this.y, this.width, this.height);
 
         // Call update on all current sprites
         this.sprites.forEach(function(sprite) {
             sprite.update();
         });
+
+        // Check if the scene is supposed to be hidden. If it is then clear the scene again
+        if (this.hidden)
+        {
+            this.canvas.con.clearRect(this.x, this.y, this.width, this.height);
+        }
     };
     
     // Adds a sprite to the array of sprites. Will be updated and drawn on the next frame.
@@ -96,41 +108,79 @@ function Scene (canvas, frameRate, x, y, width, height) {
     // Clears all sprites on the screen
     this.clear = function() {
         
+        // Call die on all sprites and clear the array. Clear the screen as well
+        this.sprites.forEach(function(sprite) {
+            sprite.die();
+        });
+
+        this.sprites = [];
+        this.canvas.con.clearRect(this.xpos, this.ypos, this.width, this.height);
     };
 
     // Hides the cursor within the scene
     this.hideCursor = function() {
 
+        // Adds css attribute to canvas element that hides cursor
+        this.canvas.element.cursor = this.CURSOR_HIDE;
     };
 
-    // shows the cursor within the scene
+    // Shows the cursor within the scene
     this.showCursor = function() {
 
+        // Removes css attribute from canvas element if its there
+        this.canvas.element.cursor = this.CURSOR_SHOW;
     };
 
-    // Returns the current mouse position
-    this.getMousePos = function() {
-
+    // Updates the mouse position from movement (callback function for mouse move event)
+    this.updateMousePos = function(event) {
+        this.mousex = event.clientX;
+        this.mousey = event.clientY;
     };
 
-    // Hides the entire scene
+    // Returns the current mouse x
+    this.getMouseX = function() {
+
+        // Returns the last recorded mouse x
+        return this.mousex;
+    };
+
+    this.getMouseY = function () {
+        
+        // Returns the last recorded mouse y
+        return this.mousey; 
+    }
+
+
+    // Toggles the member "hidden".
     this.hideScene = function() {
-
+        this.hidden = true;
     };
 
-    // Shows the entire scene
+    // Toggles the member "hidden".
     this.showScene = function() {
-
+        this.hidden = false;
     };
 
     // Chagnes the framerate
     this.changeFrameRate = function(framerate) {
 
+        // Stop the game loop and restart it using this new framerate
+        this.framerate = framerate;
+        clearInterval(this.interval);
+        this.interval = setInterval(this.update, 1 / this.framerate);
     };
 
     // Sets the background
     this.setBackground = function(background) {
-
+        this.background = background;
+        this.canvas.element.background = background;
     };
+
+    // Attach event listeners
+    this.canvas.element.addEventListener("mousemove", this.updateMousePos);
+
+    // Constants
+    this.CURSOR_HIDE = "none";
+    this.CURSOR_SHOW = "auro";
 
 }

@@ -37,12 +37,26 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
 
     // Method to draw the sprite
     this.draw = function () {
-
+        
+        // Draw the image using floored values for the x and y positions
+        this.canvas.con.drawImage(this.image, Math.floor(this.xpos), Math.floor(this.ypos));
     };
 
     // Method runs once per frame to update the sprite
     this.update = function () {
 
+        // Update kinematic values
+        this.xpos += this.dx;
+        this.ypos += this.dy;
+        
+        this.dx += this.ddx;
+        this.dy += this.ddy;
+
+        // Check for collisions
+        this.checkAllCollisions();
+
+        // Draw the sprite
+        this.draw();
     };
 
     // Method to hide the sprite (disables drawing)
@@ -72,12 +86,59 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
 
     // Allows the user to change the border rule. Only accepts constants. 
     this.changeBorderRule = function (rule) {
-
+        this.borderRule = rule;
     };
 
     // Checks for collision between this sprite and the sprite passed. Calls the respective collide methods if collision has occured (and collision is enabled)
     this.checkCollision = function (sprite) {
+        
+        // For a collision to occur, at least one (x, y) pair of this sprite must be equal to at least one (x, y) pair of the other sprite.
+        // To find out if this is the case, we just need to find the range of x and y values for both sprites and if there is any
+        // overlap, then the sprites have collided. This only works for rectangles though.
+        
+        // Smallest x value in the range is going to be the current x position. Largest is going to be xpos + width - 1
+        let this_xmax = this.xpos + this.width - 1;
 
+        // Same for y
+        let this_ymax = this.ypos + this.height - 1;
+
+        let that_xmax = sprite.xpos + sprite.width - 1;
+        let that_ymax = sprite.ypos + sprite.height - 1;
+
+        // Helpers
+        let xshared = false;
+        let yshared = false;
+
+        // Check if there is overlap
+        // If this sprites xmax is less than that sprites xmax and greater than that sprites xmin, then they must share some x
+        if (this_xmax <= that_xmax && this_xmax >= sprite.xpos)
+        {
+            xshared = true;
+        }
+        
+        // Same for the other sprite
+        else if (that_xmax <= this_xmax && that_xmax >= this.xpos)
+        {
+            xshared = true;
+        }
+
+        // Same logic for the y side
+        if (this_ymax <= that_ymax && this_ymax >= sprite.ypos)
+        {
+            yshared = true;
+        }
+
+        else if (that_ymax <= this_ymax && that_ymax >= this.ypos)
+        {
+            yshared = true;
+        }
+
+        // Collision occured, call collide functions
+        if (xshared && yshared)
+        {
+            this.collide(sprite, xshared, yshared);
+            sprite.collide(this, xshared, yshared);
+        }
     };
 
     // Changes the image for the sprite. Updates the height and width and runs collision detection.
@@ -85,23 +146,80 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
 
     };
 
-    // Method that handles collision between this sprite and another sprite
-    this.collide = function (sprite) {
+    // Method that handles collision between this sprite and another sprite. Default is that the sprite will bounce off from whatever it
+    // collides with, but this method should be overriden to give custom collision behavior. Takes the booleans which determined the collision
+    // for use in determining where the sprites go next
+    this.collide = function (sprite, xshared, yshared) {
 
+        // The first step is to move the sprites out from each other so they aren't on top of each other. 
+        // Need to determine which way that is, and how much the sprites need to move. Goal is to move the sprites the least possible distance
+        // so that they will not have any similar (x, y) pairs anymore.
+        
+        // See if the x needs adjusted
+        if (xshared)
+        {
+            
+        }
+
+
+        // Now we need to determine where the sprites will go next. The simplest way (and the way I am using for this first engine) is to 
+        // set the velocity and acceleration to be inverse for the respective dimension IF that dimension was involved in the collision.
+        // For rectangles, this should appear to be a fairly normal completely elastic collision, but for sprites that are not rectangular this will
+        // not look that good for.
     };
 
-    // Runs the collision checker. Checks collisions for this sprite against all other sprites.
+    // Runs the collision checker. Checks collisions for this sprite against all other sprites and borders
     this.checkAllCollisions = function () {
+        
+        // Check for collisions against sprites
+        this.scene.sprites.forEach(function(sprite) {
+            this.checkCollision(sprite);
+        });
 
+        // Check for collisions against borders
+        // Left
+        if (this.xpos <= this.scene.xpos)
+        {
+
+        }
+
+        // Right
+        if (this.xpos >= this.scene.xpos + this.scene.width)
+        {
+
+        }
+
+        // Top
+        if (this.ypos <= this.scene.ypos)
+        {
+
+        }
+
+        // Bot
+        if (this.ypos >= this.scene.ypos + this.scene.height)
+        {
+
+        }
     };
 
-    // Method called by scene object when the sprite is first added
+    // Method called by scene object when the sprite is first added. Meant to be overriden to allow any beginning
+    // animations or behavior
     this.init = function () {
 
     };
 
-    // Method called when the sprite is to be removed from the scene
+    // Method called when the sprite is to be removed from the scene. Sprite can do whatever it wants upon death.
+    // Default just calls the justDie method which actually cleans up the sprite but this method is meant to be overriden.
     this.die = function () {
+
+        this.justDie();
+    };
+
+    // Method called when the sprite needs to be immediately removed from the scene. No final animations or anything just poof gone.
+    this.justDie = function () {
+        
+        // Set collidable to false so this sprite doesn't cause any collisions during the death process
+        this.collidable = false;
 
     };
 

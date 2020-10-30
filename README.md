@@ -2,7 +2,7 @@
 Game engine supporting 2D graphics built with HTML Canvas.
 
 ## Canvas
-The canvas JS object contains the canvas element, its height and width, its drawing context, its x and y offsets, and its x and y position. 
+The canvas JS object contains the canvas element, its height and width, its drawing context, its x and y offsets.
 
 ## Scene
 The scene JS object contains the canvas object, an array of the sprites currently in the scene, the framerate of the scene, and an array tracking the state of each key on the keyboard. The scene object is meant to represent any "screen" of the game. A scene could be a menu selection, a level, or the entire game itself. 
