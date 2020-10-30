@@ -12,12 +12,12 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
     this.ypos = starty;
 
     // Motion
-    this.dx;
-    this.dy;
+    this.dx = 0;
+    this.dy = 0;
 
     // Acceleration
-    this.ddx;
-    this.ddy;
+    this.ddx = 0;
+    this.ddy = 0;
 
     // String representing where the image for the sprite is located
     this.image = image;
@@ -46,13 +46,11 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         
         // Draw the image using floored values for the x and y positions
         this.canvas.con.drawImage(this.image, Math.floor(this.xpos), Math.floor(this.ypos));
-        console.log("I have drawn");
     };
 
     // Method runs once per frame to update the sprite
     this.update = function () {
 
-        console.log("sprite updating");
         // Update kinematic values
         this.xpos += this.dx;
         this.ypos += this.dy;
