@@ -52,6 +52,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
     // Method runs once per frame to update the sprite
     this.update = function () {
 
+        console.log("sprite updating");
         // Update kinematic values
         this.xpos += this.dx;
         this.ypos += this.dy;
