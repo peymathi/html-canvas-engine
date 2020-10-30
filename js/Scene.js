@@ -147,7 +147,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
 
         out = document.getElementById("out");
         let x = this.mousex - this.canvas.offsetx;
-        let y = this.mousey - this.cavas.offsety;
+        let y = this.mousey - this.canvas.offsety;
         console.log("i ran");
 
         out.textContent = `Mousex: ${x} Mousey: ${y}`;
