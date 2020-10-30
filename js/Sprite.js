@@ -64,6 +64,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
             || this.ypos + this.height < this.scene.ypos || this.ypos + this.height > this.scene.ypos + this.scene.height)
         {
             this.justDie();
+            console.log("I am dying");
             return;
         }
 
