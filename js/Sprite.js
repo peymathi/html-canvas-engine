@@ -208,7 +208,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
 
         // Check for collisions against borders
         // Left
-        if (this.xpos <= this.scene.xpos)
+        if (this.xpos + 1 <= this.scene.xpos)
         {
             if (this.borderRule == BORDER_BOUNCE)
             {
@@ -235,7 +235,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         }
 
         // Right
-        if (this.xpos + this.width >= this.scene.width)
+        if (this.xpos + this.width - 1 >= this.scene.width)
         {
             if (this.borderRule == BORDER_BOUNCE)
             {
@@ -259,7 +259,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         }
 
         // Top
-        if (this.ypos <= this.scene.ypos)
+        if (this.ypos + 1 <= this.scene.ypos)
         {
             if (this.borderRule == BORDER_BOUNCE)
             {
