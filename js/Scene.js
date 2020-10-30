@@ -40,7 +40,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
 
         // Call update on all current sprites
         this.sprites.forEach(function(sprite) {
-            sprite.update();
+            sprite.update().bind(sprite);
         });
 
         // Check if the scene is supposed to be hidden. If it is then clear the scene again
@@ -121,7 +121,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
         
         // Call justDie on all sprites Clear the screen as well
         this.sprites.forEach(function(sprite) {
-            sprite.justDie();
+            sprite.justDie().bind(sprite);
         });
 
         this.canvas.con.clearRect(this.xpos, this.ypos, this.width, this.height);
