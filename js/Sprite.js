@@ -5,7 +5,7 @@ const BORDER_IGNORE = "IGNORE";
 const BORDER_DIE = "DIE";
 
 // Object to represent a sprite
-function Sprite (startx, starty, image, scene, borderRule, collidable) {
+function Sprite (startx, starty, image_src, scene, borderRule, collidable) {
     
     // Position
     this.xpos = startx;
@@ -20,7 +20,8 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
     this.ddy;
 
     // String representing where the image for the sprite is located
-    this.image = image;
+    this.image = new Image();
+    this.image.src = image_src;
 
     // Dimensions set by image dimensions
     this.width = this.image.width;
