@@ -12,7 +12,9 @@ blue_rect.dy = 0.6;
 scene.addSprite(blue_rect);
 let img = document.getElementById("blue_rect");
 canvas.con.drawImage(document.getElementById("blue_rect"), 0, 0);
-canvas.con.drawImage(document.getElementById("blue_rect"), 799, 799);
+console.log(`Image Width: ${img.width} Image Height: ${img.height}`);
+console.log(`Image Natural Width: ${img.naturalWidth} Image Natural Height: ${img.naturalHeight}`);
+canvas.con.drawImage(document.getElementById("blue_rect"), canvas.width - img.naturalWidth, canvas.height - img.naturalHeight);
 
 //scene.start();
 //setTimeout(function() {scene.end()}, 60000);
