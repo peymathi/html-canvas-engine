@@ -200,7 +200,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // Check for collisions against sprites
         this.scene.sprites.forEach(function(sprite) {
             this.checkCollision(sprite).bind(this);
-        }.bind(this));
+        }.bind(this)).bind(this);
 
         // Check for collisions against borders
         // Left
