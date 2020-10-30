@@ -273,6 +273,8 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // Bot
         if (this.ypos >= this.scene.height)
         {
+            console.log("I should have bounced, but i did not bounce");
+            console.log(this.borderRule);
             if (this.borderRule == BORDER_BOUNCE)
             {
                 console.log("BOUNCE!");
