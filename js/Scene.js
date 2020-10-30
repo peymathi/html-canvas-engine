@@ -34,6 +34,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
     // Calls update on all sprites
     this.update = function() {
         
+        console.log("Updated");
         // Clear the previous frame
         this.canvas.con.clearRect(this.x, this.y, this.width, this.height);
 
