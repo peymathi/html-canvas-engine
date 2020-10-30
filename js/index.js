@@ -11,4 +11,4 @@ blue_rect.dy = 0.6;
 
 scene.addSprite(blue_rect);
 scene.start();
-setTimeout(function() {scene.end().bind(scene)}, 15000);
+setTimeout(function() {scene.end()}, 15000);
