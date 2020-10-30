@@ -59,8 +59,8 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         this.dy += this.ddy;
 
         // Make sure we are still visible
-        if (this.xpos + this.width < this.scene.xpos || this.xpos + this.width > this.scene.xpos + this.scene.width
-            || this.ypos + this.height < this.scene.ypos || this.ypos + this.height > this.scene.ypos + this.scene.height)
+        if (this.xpos + this.width < this.scene.xpos || this.xpos - this.width > this.scene.xpos + this.scene.width
+            || this.ypos + this.height < this.scene.ypos || this.ypos - this.height > this.scene.ypos + this.scene.height)
         {
             this.justDie();
             console.log("I am dying");
@@ -275,8 +275,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         console.log(`scene height: ${this.scene.height}`);
         if (this.ypos >= this.scene.height)
         {
-            console.log("I should have bounced, but i did not bounce");
-            console.log(this.borderRule);
+            console.log("I should have bounced");
             if (this.borderRule == BORDER_BOUNCE)
             {
                 console.log("BOUNCE!");
