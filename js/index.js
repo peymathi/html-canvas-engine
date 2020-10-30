@@ -11,8 +11,11 @@ blue_rect.dy = 0.6;
 
 scene.addSprite(blue_rect);
 
-scene.start();
-setTimeout(function() {scene.end()}, 60000);
+//scene.start();
+//setTimeout(function() {scene.end()}, 60000);
+let img = document.getElementById("blue_rect");
+canvas.con.drawImage(img, 200, 200);
+canvas.con.clearRect(0, 0, canvas.width, canvas.height);
 
 
 function mouse(e) {
