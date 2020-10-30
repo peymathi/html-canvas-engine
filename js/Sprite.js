@@ -70,7 +70,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         }
 
         // Check for collisions
-        this.checkAllCollisions();
+        this.checkAllCollisions().bind(this);
 
         // Draw the sprite
         this.draw();
@@ -153,8 +153,8 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // Collision occured, call collide functions
         if (xshared && yshared)
         {
-            this.collide(sprite, xshared, yshared);
-            sprite.collide(this, xshared, yshared);
+            this.collide(sprite, xshared, yshared).bind(this);
+            sprite.collide(this, xshared, yshared).bind(sprite);
         }
     };
 
@@ -169,7 +169,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         this.height = image.height;
 
         // Run collision detection
-        this.checkAllCollisions();
+        this.checkAllCollisions().bind(this);
     };
 
     // Method that handles collision between this sprite and another sprite. Default is that the sprite will bounce off from whatever it
@@ -199,7 +199,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         
         // Check for collisions against sprites
         this.scene.sprites.forEach(function(sprite) {
-            this.checkCollision(sprite);
+            this.checkCollision(sprite)j.bind(this);
         });
 
         // Check for collisions against borders
