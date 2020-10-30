@@ -283,7 +283,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         }
 
         // Bot
-        if (this.ypos + this.height >= this.scene.height)
+        if (this.ypos + this.height - 5 >= this.scene.height)
         {
             if (this.borderRule == BORDER_BOUNCE)
             {
