@@ -268,12 +268,13 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         }
 
         // Bot
-        if (this.ypos >= this.scene.ypos + this.scene.height)
+        if (this.ypos >= this.scene.height)
         {
             if (this.borderRule == BORDER_BOUNCE)
             {
                 this.dy *= -1;
                 this.ddy *= -1;
+                this.ypos -= 1;
             }
 
             else if (this.borderRule == BORDER_DIE)
