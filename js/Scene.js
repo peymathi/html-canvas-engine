@@ -145,12 +145,6 @@ function Scene (canvas, frameRate, x, y, width, height) {
         this.mousex = event.clientX;
         this.mousey = event.clientY;
 
-        out = document.getElementById("out");
-        let x = this.mousex - this.canvas.offsetx;
-        let y = this.mousey - this.canvas.offsety;
-        console.log("i ran");
-
-        out.textContent = `Mousex: ${x} Mousey: ${y}`;
     };
 
     // Returns the current mouse x

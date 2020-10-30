@@ -12,3 +12,17 @@ blue_rect.dy = 0.6;
 scene.addSprite(blue_rect);
 scene.start();
 setTimeout(function() {scene.end()}, 60000);
+
+
+function mouse(e) {
+    mousex = e.clientX;
+    mousey = e.clientY;
+
+    out = document.getElementById("out");
+    let x = this.mousex - this.canvas.offsetx;
+    let y = this.mousey - this.canvas.offsety;
+
+    out.textContent = `Mousex: ${x} Mousey: ${y}`;
+}
+
+document.getElementById("mainCanvas").addEventListener("mousemove", mouse);
