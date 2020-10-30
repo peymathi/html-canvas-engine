@@ -36,7 +36,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
         
         console.log("Updated");
         // Clear the previous frame
-        this.canvas.con.clearRect(this.x, this.y, this.width, this.height);
+        //this.canvas.con.clearRect(this.x, this.y, this.width, this.height);
 
         // Call update on all current sprites
         this.sprites.forEach(function(sprite) {
@@ -46,6 +46,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
         // Check if the scene is supposed to be hidden. If it is then clear the scene again
         if (this.hidden)
         {
+            console.log("i am evil");
             this.canvas.con.clearRect(this.x, this.y, this.width, this.height);
         }
     };
