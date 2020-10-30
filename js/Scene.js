@@ -40,7 +40,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
 
         // Call update on all current sprites
         this.sprites.forEach(function(sprite) {
-            sprite.update().bind(sprite);
+            sprite.update();
         });
 
         // Check if the scene is supposed to be hidden. If it is then clear the scene again
@@ -69,7 +69,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
         {   
             // Starts the game loop. Interval time is equal to the number of milliseconds delay to ensure that a max of this.framerate calls to
             // update() happen every second. Interval object is stored in member so we can stop it later
-            this.interval = setInterval(this.update.bind(this), 1000 / this.framerate);
+            this.interval = setInterval(this.update, 1000 / this.framerate);
         }
 
         else
@@ -121,7 +121,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
         
         // Call justDie on all sprites Clear the screen as well
         this.sprites.forEach(function(sprite) {
-            sprite.justDie().bind(sprite);
+            sprite.justDie();
         });
 
         this.canvas.con.clearRect(this.xpos, this.ypos, this.width, this.height);
@@ -177,7 +177,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
         // Stop the game loop and restart it using this new framerate
         this.framerate = framerate;
         clearInterval(this.interval);
-        this.interval = setInterval(this.update.bind(this), 1000 / this.framerate);
+        this.interval = setInterval(this.update, 1000 / this.framerate);
     };
 
     // Sets the background
