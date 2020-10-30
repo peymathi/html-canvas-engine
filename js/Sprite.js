@@ -1,3 +1,9 @@
+// Constants for border collisions
+const BORDER_BOUNCE = "BOUNCE";
+const BORDER_WRAP = "WRAP";
+const BORDER_IGNORE = "IGNORE";
+const BORDER_DIE = "DIE";
+
 // Object to represent a sprite
 function Sprite (startx, starty, image, scene, borderRule, collidable) {
     
@@ -152,6 +158,15 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
     // Changes the image for the sprite. Updates the height and width and runs collision detection.
     this.setImage = function (image) {
 
+        // Set the image and height / width. Check for collisions.
+        this.image = image;
+
+        // Update height / width (ideally we set image in terms of em for portability and then convert to px here, but no time for that now)
+        this.width = image.width;
+        this.height = image.height;
+
+        // Run collision detection
+        this.checkAllCollisions();
     };
 
     // Method that handles collision between this sprite and another sprite. Default is that the sprite will bounce off from whatever it
@@ -188,18 +203,18 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // Left
         if (this.xpos <= this.scene.xpos)
         {
-            if (this.borderRule == this.BORDER_BOUNCE)
+            if (this.borderRule == BORDER_BOUNCE)
             {
                 this.dx *= -1;
                 this.ddx *= -1;
             }
 
-            else if (this.borderRule == this.BORDER_DIE)
+            else if (this.borderRule == BORDER_DIE)
             {
                 this.die();
             }
 
-            else if (this.borderRule == this.BORDER_WRAP)
+            else if (this.borderRule == BORDER_WRAP)
             {
                 this.xpos = this.scene.width - 1;
             }
@@ -208,18 +223,18 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // Right
         if (this.xpos >= this.scene.xpos + this.scene.width)
         {
-            if (this.borderRule == this.BORDER_BOUNCE)
+            if (this.borderRule == BORDER_BOUNCE)
             {
                 this.dx *= -1;
                 this.ddx *= -1;
             }
 
-            else if (this.borderRule == this.BORDER_DIE)
+            else if (this.borderRule == BORDER_DIE)
             {
                 this.die();
             }
 
-            else if (this.borderRule == this.BORDER_WRAP)
+            else if (this.borderRule == BORDER_WRAP)
             {
                 this.xpos = this.scene.xpos + 1;
             }
@@ -228,18 +243,18 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // Top
         if (this.ypos <= this.scene.ypos)
         {
-            if (this.borderRule == this.BORDER_BOUNCE)
+            if (this.borderRule == BORDER_BOUNCE)
             {
                 this.dy *= -1;
                 this.ddy *= -1;
             }
 
-            else if (this.borderRule == this.BORDER_DIE)
+            else if (this.borderRule == BORDER_DIE)
             {
                 this.die();
             }
 
-            else if (this.borderRule == this.BORDER_WRAP)
+            else if (this.borderRule == BORDER_WRAP)
             {
                 this.ypos = this.scene.height - 1;
             }
@@ -248,18 +263,18 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // Bot
         if (this.ypos >= this.scene.ypos + this.scene.height)
         {
-            if (this.borderRule == this.BORDER_BOUNCE)
+            if (this.borderRule == BORDER_BOUNCE)
             {
                 this.dy *= -1;
                 this.ddy *= -1;
             }
 
-            else if (this.borderRule == this.BORDER_DIE)
+            else if (this.borderRule == BORDER_DIE)
             {
                 this.die();
             }
 
-            else if (this.borderRule == this.BORDER_WRAP)
+            else if (this.borderRule == BORDER_WRAP)
             {
                 this.ypos = this.scene.ypos + 1;
             }
@@ -290,10 +305,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
 
     };
 
-    // Constants for border collisions
-    this.BORDER_BOUNCE = "BOUNCE";
-    this.BORDER_WRAP = "WRAP";
-    this.BORDER_IGNORE = "IGNORE";
-    this.BORDER_DIE = "DIE";
-
 }
+
+
+

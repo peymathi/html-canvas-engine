@@ -1,6 +1,10 @@
 // Scene object. Represents a single screen within the game in which sprites can be loaded and unloaded. 
 function Scene (canvas, frameRate, x, y, width, height) {
     
+    // Constants
+    this.CURSOR_HIDE = "none";
+    this.CURSOR_SHOW = "auro";
+
     // Canvas object
     this.canvas = canvas;
 
@@ -183,9 +187,5 @@ function Scene (canvas, frameRate, x, y, width, height) {
 
     // Attach event listeners
     this.canvas.element.addEventListener("mousemove", this.updateMousePos);
-
-    // Constants
-    this.CURSOR_HIDE = "none";
-    this.CURSOR_SHOW = "auro";
 
 }
