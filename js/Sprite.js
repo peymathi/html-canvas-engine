@@ -46,6 +46,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         
         // Draw the image using floored values for the x and y positions
         this.canvas.con.drawImage(this.image, Math.floor(this.xpos), Math.floor(this.ypos));
+        console.log("I have drawn");
     };
 
     // Method runs once per frame to update the sprite
