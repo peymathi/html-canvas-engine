@@ -199,7 +199,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         
         // Check for collisions against sprites
         this.scene.sprites.forEach(function(sprite) {
-            this.checkCollision(sprite)j.bind(this);
+            this.checkCollision(sprite).bind(this);
         });
 
         // Check for collisions against borders
