@@ -15,12 +15,12 @@ setTimeout(function() {scene.end()}, 60000);
 
 
 function mouse(e) {
-    mousex = e.clientX;
-    mousey = e.clientY;
+    let mousex = e.clientX;
+    let mousey = e.clientY;
 
     out = document.getElementById("out");
-    let x = this.mousex - document.getElementById("mainCanvas").offsetLeft;
-    let y = this.mousey - document.getElementById("mainCanvas").offsetTop;
+    let x = mousex - document.getElementById("mainCanvas").offsetLeft;
+    let y = mousey - document.getElementById("mainCanvas").offsetTop;
 
     out.textContent = `Mousex: ${x} Mousey: ${y}`;
 }
