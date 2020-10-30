@@ -2,7 +2,7 @@
 var canvas = new Canvas("mainCanvas");
 
 // Create scene
-var scene = new Scene(canvas, 60, 0, 0, canvas.width, canvas.height);
+var scene = new Scene(canvas, 60, 0, 0, canvas.offsetWidth, canvas.offsetHeight);
 
 // Create blue rect sprite
 var blue_rect = new Sprite(20, 20, document.getElementById("blue_rect"), scene, BORDER_BOUNCE, true);
