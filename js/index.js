@@ -19,12 +19,12 @@ canvas.con.drawImage(document.getElementById("blue_rect"), 799, 799);
 
 
 function mouse(e) {
-    let mousex = e.clientX;
-    let mousey = e.clientY;
+    let mousex = e.offsetX;
+    let mousey = e.offsetY;
 
     out = document.getElementById("out");
-    let x = mousex - document.getElementById("mainCanvas").offsetLeft;
-    let y = mousey - document.getElementById("mainCanvas").offsetTop;
+    let x = mousex;// - document.getElementById("mainCanvas").offsetLeft;
+    let y = mousey;// - document.getElementById("mainCanvas").offsetTop;
 
     console.log(mousex);
     console.log(mousey);
