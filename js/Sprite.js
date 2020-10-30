@@ -229,7 +229,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         }
 
         // Right
-        if (this.xpos >= this.scene.width)
+        if (this.xpos + this.width >= this.scene.width)
         {
             if (this.borderRule == BORDER_BOUNCE)
             {
@@ -273,7 +273,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // Bot
         console.log(`ypos: ${this.ypos}`);
         console.log(`scene height: ${this.scene.height}`);
-        if (this.ypos >= this.scene.height)
+        if (this.ypos + this.height >= this.scene.height)
         {
             console.log("I should have bounced");
             if (this.borderRule == BORDER_BOUNCE)
