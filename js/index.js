@@ -11,4 +11,4 @@ blue_rect.dx = 0.25;
 blue_rect.dy = 0.6;
 
 scene.start();
-setInterval(function() {scene.end()}, 1500);
+setTimeout(function() {scene.end()}, 1500);
