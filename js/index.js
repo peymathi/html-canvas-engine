@@ -1,6 +1,5 @@
 // Create canvas
 var canvas = new Canvas("mainCanvas");
-console.log(typeof(canvas))
 
 // Create scene
 var scene = new Scene(canvas, 60, 0, 0, canvas.width, canvas.height);
@@ -12,4 +11,4 @@ blue_rect.dy = 0.6;
 
 scene.addSprite(blue_rect);
 scene.start();
-setTimeout(function() {scene.end()}, 15000);
+setTimeout(function() {scene.end().bind(scene)}, 15000);
