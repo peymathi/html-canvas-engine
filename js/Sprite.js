@@ -200,7 +200,12 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         
         // Check for collisions against sprites
         this.scene.sprites.forEach(function(sprite) {
-            this.checkCollision(sprite);
+            
+            // Make sure this sprite isn't the current sprite
+            if (sprite != this)
+            {
+                this.checkCollision(sprite);
+            }
         });
 
         // Check for collisions against borders
