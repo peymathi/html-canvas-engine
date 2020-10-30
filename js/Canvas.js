@@ -10,8 +10,8 @@ function Canvas (id) {
     this.offsetx = this.element.offsetLeft;
 
     // Size
-    this.width = this.element.width;
-    this.height = this.height;
+    this.width = this.element.offsetWidth;
+    this.height = this.element.offsetHeight;
 
     // Context
     this.con = this.element.getContext("2d");   
