@@ -19,8 +19,8 @@ function mouse(e) {
     mousey = e.clientY;
 
     out = document.getElementById("out");
-    let x = this.mousex - this.canvas.offsetx;
-    let y = this.mousey - this.canvas.offsety;
+    let x = this.mousex - document.getElementById("mainCanvas").offsetLeft;
+    let y = this.mousey - document.getElementById("mainCanvas").offsetTop;
 
     out.textContent = `Mousex: ${x} Mousey: ${y}`;
 }
