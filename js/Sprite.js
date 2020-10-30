@@ -214,6 +214,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
             {
                 this.dx *= -1;
                 this.ddx *= -1;
+                this.xpos += 1;
             }
 
             else if (this.borderRule == BORDER_DIE)
@@ -228,12 +229,13 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         }
 
         // Right
-        if (this.xpos >= this.scene.xpos + this.scene.width)
+        if (this.xpos >= this.scene.width)
         {
             if (this.borderRule == BORDER_BOUNCE)
             {
                 this.dx *= -1;
                 this.ddx *= -1;
+                this.xpos -= 1;
             }
 
             else if (this.borderRule == BORDER_DIE)
@@ -254,6 +256,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
             {
                 this.dy *= -1;
                 this.ddy *= -1;
+                this.ypos += 1;
             }
 
             else if (this.borderRule == BORDER_DIE)
@@ -272,6 +275,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         {
             if (this.borderRule == BORDER_BOUNCE)
             {
+                console.log("BOUNCE!");
                 this.dy *= -1;
                 this.ddy *= -1;
                 this.ypos -= 1;
