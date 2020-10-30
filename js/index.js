@@ -1,4 +1,3 @@
-
 // Create canvas
 let canvas = new Canvas("mainCanvas");
 
