@@ -13,4 +13,5 @@
 
 #mainCanvas {
     border: 1px solid;
+    padding: none;
 }
