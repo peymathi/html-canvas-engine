@@ -50,6 +50,12 @@ function Scene (canvas, frameRate, x, y, width, height) {
         this.sprites.push(sprite);
     };
 
+    // Removes a sprite from the array of sprites.
+    this.removeSprite = function(sprite) {
+        index = this.sprites.indexOf(sprite);
+        this.sprites.splice(index, 1);
+    }
+
     // Starts the loop for the scene
     this.start = function() {
         
@@ -108,12 +114,11 @@ function Scene (canvas, frameRate, x, y, width, height) {
     // Clears all sprites on the screen
     this.clear = function() {
         
-        // Call die on all sprites and clear the array. Clear the screen as well
+        // Call justDie on all sprites Clear the screen as well
         this.sprites.forEach(function(sprite) {
-            sprite.die();
+            sprite.justDie();
         });
 
-        this.sprites = [];
         this.canvas.con.clearRect(this.xpos, this.ypos, this.width, this.height);
     };
 

@@ -52,6 +52,14 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         this.dx += this.ddx;
         this.dy += this.ddy;
 
+        // Make sure we are still visible
+        if (this.xpos + this.width < this.scene.xpos || this.xpos + this.width > this.scene.xpos + this.scene.width
+            || this.ypos + this.height < this.scene.ypos || this.ypos + this.height > this.scene.ypos + this.scene.height)
+        {
+            this.justDie();
+            return;
+        }
+
         // Check for collisions
         this.checkAllCollisions();
 
@@ -158,7 +166,7 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // See if the x needs adjusted
         if (xshared)
         {
-            
+            // Check which way 
         }
 
 
@@ -180,25 +188,81 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         // Left
         if (this.xpos <= this.scene.xpos)
         {
+            if (this.borderRule == this.BORDER_BOUNCE)
+            {
+                this.dx *= -1;
+                this.ddx *= -1;
+            }
 
+            else if (this.borderRule == this.BORDER_DIE)
+            {
+                this.die();
+            }
+
+            else if (this.borderRule == this.BORDER_WRAP)
+            {
+                this.xpos = this.scene.width - 1;
+            }
         }
 
         // Right
         if (this.xpos >= this.scene.xpos + this.scene.width)
         {
+            if (this.borderRule == this.BORDER_BOUNCE)
+            {
+                this.dx *= -1;
+                this.ddx *= -1;
+            }
 
+            else if (this.borderRule == this.BORDER_DIE)
+            {
+                this.die();
+            }
+
+            else if (this.borderRule == this.BORDER_WRAP)
+            {
+                this.xpos = this.scene.xpos + 1;
+            }
         }
 
         // Top
         if (this.ypos <= this.scene.ypos)
         {
+            if (this.borderRule == this.BORDER_BOUNCE)
+            {
+                this.dy *= -1;
+                this.ddy *= -1;
+            }
 
+            else if (this.borderRule == this.BORDER_DIE)
+            {
+                this.die();
+            }
+
+            else if (this.borderRule == this.BORDER_WRAP)
+            {
+                this.ypos = this.scene.height - 1;
+            }
         }
 
         // Bot
         if (this.ypos >= this.scene.ypos + this.scene.height)
         {
+            if (this.borderRule == this.BORDER_BOUNCE)
+            {
+                this.dy *= -1;
+                this.ddy *= -1;
+            }
 
+            else if (this.borderRule == this.BORDER_DIE)
+            {
+                this.die();
+            }
+
+            else if (this.borderRule == this.BORDER_WRAP)
+            {
+                this.ypos = this.scene.ypos + 1;
+            }
         }
     };
 
@@ -220,6 +284,9 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
         
         // Set collidable to false so this sprite doesn't cause any collisions during the death process
         this.collidable = false;
+
+        // Remove ourselves from the scene array of sprites
+        this.scene.removeSprite(this);
 
     };
 
