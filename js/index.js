@@ -14,6 +14,7 @@ let img = document.getElementById("blue_rect");
 console.log(`Actual W: ${img.width}`);
 console.log(`Actual H: ${img.height}`);
 canvas.con.drawImage(document.getElementById("blue_rect"), 0, 0);
+canvas.con.drawImage(document.getElementById("blue_rect"), 700, 700);
 
 //scene.start();
 //setTimeout(function() {scene.end()}, 60000);
