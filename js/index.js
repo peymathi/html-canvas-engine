@@ -10,5 +10,6 @@ var blue_rect = new Sprite(20, 20, document.getElementById("blue_rect"), scene, 
 blue_rect.dx = 0.25;
 blue_rect.dy = 0.6;
 
+scene.addSprite(blue_rect);
 scene.start();
 setTimeout(function() {scene.end()}, 15000);
