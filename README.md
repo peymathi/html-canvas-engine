@@ -1,6 +1,8 @@
 # HTML Canvas Game Engine
 Game engine supporting 2D graphics built with HTML Canvas.
 
+Active demo/testing site can be found [here](https://peymathi.github.io/html-canvas-engine/).
+
 ## Canvas
 The canvas JS object contains the canvas element, its height and width, its drawing context, its x and y offsets.
 
