@@ -1,5 +1,6 @@
 // Create canvas
 let canvas = new Canvas("mainCanvas");
+console.log(typeof(canvas))
 
 // Create scene
 let scene = new Scene(canvas, 60, 0, 0, canvas.width, canvas.height);
@@ -10,3 +11,4 @@ blue_rect.dx = 0.25;
 blue_rect.dy = 0.6;
 
 scene.start();
+setInterval(function() {scene.end()}, 1500);
