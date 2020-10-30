@@ -5,7 +5,7 @@ var canvas = new Canvas("mainCanvas");
 var scene = new Scene(canvas, 60, 0, 0, canvas.width, canvas.height);
 
 // Create blue rect sprite
-var blue_rect = new Sprite(0, 0, document.getElementById("blue_rect"), scene, BORDER_WRAP, true);
+var blue_rect = new Sprite(0, 0, document.getElementById("blue_rect"), scene, BORDER_BOUNCE, true);
 blue_rect.dx = 0.2;
 blue_rect.dy = 0.1;
 
