@@ -13,8 +13,5 @@
 
 #mainCanvas {
     border: 1px solid;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 1px; /* Need 1px so the border isn't drawn over */
 }

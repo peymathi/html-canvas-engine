@@ -23,10 +23,8 @@ function Sprite (startx, starty, image, scene, borderRule, collidable) {
     this.image = image;
 
     // Dimensions set by image dimensions
-    this.width = this.image.width;
-    this.height = this.image.height;
-    console.log(`Calc W: ${this.width}`);
-    console.log(`Calc H: ${this.height}`);
+    this.width = this.image.natrualWidth;
+    this.height = this.image.naturalHeight;
 
     // Reference to the scene this sprite belongs to
     this.scene = scene;

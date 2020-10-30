@@ -10,14 +10,9 @@ blue_rect.dx = 0.25;
 blue_rect.dy = 0.6;
 
 scene.addSprite(blue_rect);
-let img = document.getElementById("blue_rect");
-canvas.con.drawImage(document.getElementById("blue_rect"), 0, 0);
-console.log(`Image Width: ${img.width} Image Height: ${img.height}`);
-console.log(`Image Natural Width: ${img.naturalWidth} Image Natural Height: ${img.naturalHeight}`);
-canvas.con.drawImage(document.getElementById("blue_rect"), canvas.width - img.naturalWidth, canvas.height - img.naturalHeight);
 
-//scene.start();
-//setTimeout(function() {scene.end()}, 60000);
+scene.start();
+setTimeout(function() {scene.end()}, 60000);
 
 
 function mouse(e) {
@@ -25,8 +20,8 @@ function mouse(e) {
     let mousey = e.offsetY;
 
     out = document.getElementById("out");
-    let x = mousex;// - document.getElementById("mainCanvas").offsetLeft;
-    let y = mousey;// - document.getElementById("mainCanvas").offsetTop;
+    let x = mousex;
+    let y = mousey;
 
     console.log(mousex);
     console.log(mousey);
