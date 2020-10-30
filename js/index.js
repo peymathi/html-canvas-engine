@@ -10,7 +10,9 @@ blue_rect.dx = 0.25;
 blue_rect.dy = 0.6;
 
 scene.addSprite(blue_rect);
-
+let img = document.getElementById("blue_rect");
+console.log(`Actual W: ${img.width}`);
+console.log(`Actual H: ${img.height}`);
 canvas.con.drawImage(document.getElementById("blue_rect"), 0, 0);
 
 //scene.start();
