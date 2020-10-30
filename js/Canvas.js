@@ -3,7 +3,7 @@
 function Canvas (id) {
     
     // Holds the JavaScript Canvas element
-    this.element = getElementById(id);
+    this.element = document.getElementById(id);
 
     // Offsets for calculating mouse position within the canvas
     this.offsety = this.element.offsetTop;

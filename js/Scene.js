@@ -3,7 +3,7 @@ function Scene (canvas, frameRate, x, y, width, height) {
     
     // Constants
     this.CURSOR_HIDE = "none";
-    this.CURSOR_SHOW = "auro";
+    this.CURSOR_SHOW = "auto";
 
     // Canvas object
     this.canvas = canvas;
