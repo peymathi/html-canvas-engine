@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-29T22:40:29.109Z" agent="5.0 (X11)" etag="I-i63MEZ_c0MDluX4bLJ" version="13.8.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-30T02:22:50.110Z" agent="5.0 (X11)" etag="67YHR7wyfBhcqLAxO3Oz" version="13.8.6" type="github">
   <diagram id="5traIhpLM5jQMwLdFxB_" name="Page-1">
     <mxGraphModel dx="643" dy="383" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -33,16 +33,16 @@
           <mxGeometry y="178" width="160" height="132" as="geometry" />
         </mxCell>
         <mxCell id="409GrsexgnhYUh9YllDB-26" value="Sprite" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-          <mxGeometry x="480" y="30" width="210" height="450" as="geometry" />
+          <mxGeometry x="480" y="30" width="210" height="490" as="geometry" />
         </mxCell>
-        <mxCell id="409GrsexgnhYUh9YllDB-27" value="+ xpos : Int&#xa;+ ypos : Int&#xa;+ dx : Int&#xa;+ dy : Int&#xa;+ ddx : Int&#xa;+ ddy : Int&#xa;+ width : Int&#xa;+ height : Int&#xa;+ image : element&#xa;+ scene : Scene&#xa;+ canvas : Canvas&#xa;+ borderRule : String&#xa;+ collidable : bool&#xa;+ hidden : bool&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="409GrsexgnhYUh9YllDB-26" vertex="1">
+        <mxCell id="409GrsexgnhYUh9YllDB-27" value="+ xpos : float&#xa;+ ypos : float&#xa;+ dx : float&#xa;+ dy : float&#xa;+ ddx : float&#xa;+ ddy : float&#xa;+ width : Int&#xa;+ height : Int&#xa;+ image : element&#xa;+ scene : Scene&#xa;+ canvas : Canvas&#xa;+ borderRule : String&#xa;+ collidable : bool&#xa;+ hidden : bool&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="409GrsexgnhYUh9YllDB-26" vertex="1">
           <mxGeometry y="26" width="210" height="214" as="geometry" />
         </mxCell>
         <mxCell id="409GrsexgnhYUh9YllDB-28" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="409GrsexgnhYUh9YllDB-26" vertex="1">
           <mxGeometry y="240" width="210" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="409GrsexgnhYUh9YllDB-29" value="+ update(void) : void&#xa;+ draw (void) : void&#xa;+ hide (void) : void&#xa;+ show(void) : void&#xa;+ changeAngle(float) : void&#xa;+ changeSpeed(float) : void&#xa;+ addForce(float, float)&#xa;+ changeBorderRule(String) : void&#xa;+ checkCollision (Sprite) : bool&#xa;+ setImage (element) : void&#xa;+ collide (Sprite) : void&#xa;+ checkAllCollisions (void) : void&#xa;+ checkBorderCollisions (void) : void&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="409GrsexgnhYUh9YllDB-26" vertex="1">
-          <mxGeometry y="248" width="210" height="202" as="geometry" />
+        <mxCell id="409GrsexgnhYUh9YllDB-29" value="+ update(void) : void&#xa;+ draw (void) : void&#xa;+ hide (void) : void&#xa;+ show(void) : void&#xa;+ changeAngle(float) : void&#xa;+ changeSpeed(float) : void&#xa;+ addForce(float, float)&#xa;+ changeBorderRule(String) : void&#xa;+ checkCollision (Sprite) : bool&#xa;+ setImage (element) : void&#xa;+ collide (Sprite) : void&#xa;+ checkAllCollisions (void) : void&#xa;+ checkBorderCollisions (void) : void&#xa;+ init (void) : void&#xa;+ die (void) : void&#xa;+ justDie (void) : void&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="409GrsexgnhYUh9YllDB-26" vertex="1">
+          <mxGeometry y="248" width="210" height="242" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
